@@ -7,7 +7,7 @@ const projects = [
     artist: "Lorena Silaj",
     type: "Nature morte · Série 2025",
     description: "Une machine ancienne, témoin silencieux d’un autre temps.",
-    image: "/images/presse-ancienne.jpg",
+    image: "/art-gallery-websit/images/presse-ancienne.jpg",
   },
   {
     number: "02",
@@ -15,7 +15,7 @@ const projects = [
     artist: "Jairo David",
     type: "Portrait · Série organique",
     description: "Le végétal devient parure, refuge et langage.",
-    image: "/images/portrait-vegetal.jpg",
+    image: "/art-gallery-websit/images/portrait-vegetal.jpg",
   },
   {
     number: "03",
@@ -23,7 +23,7 @@ const projects = [
     artist: "David Gari",
     type: "Street · Lumière naturelle",
     description: "Une ruelle, quelques silhouettes et la ville qui respire.",
-    image: "/images/ruelle-urbaine.jpg",
+    image: "/art-gallery-websit/images/ruelle-urbaine.jpg",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function App() {
               </a>
             </div>
             <div className="group relative aspect-[16/9] overflow-hidden bg-ink">
-              <img src="/images/ruelle-urbaine.jpg" alt="Ruelle urbaine éclairée par le soleil" className="image-muted h-full w-full object-cover transition duration-1000 group-hover:scale-[1.025]" />
+              <img src="/art-gallery-websit/images/ruelle-urbaine.jpg" alt="Ruelle urbaine éclairée par le soleil" className="image-muted h-full w-full object-cover transition duration-1000 group-hover:scale-[1.025]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-5 text-white lg:p-7">
                 <div>
