@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "DM Sans", sans-serif;
+  --font-display: "Playfair Display", serif;
+  --color-cream: #fdfbf7;
+  --color-ink: #1a1a1a;
+  --color-copper: #817b73;
+  --color-stone: #e9e6e0;
+}
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--color-cream); font-family: var(--font-sans); }
+  a { color: inherit; text-decoration: none; }
+  button { cursor: pointer; }
+  ::selection { color: var(--color-cream); background: var(--color-copper); }
+}
+
+@layer components {
+  .font-display { font-family: var(--font-display); }
+  .logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.04em; }
+  .logo span { color: #817b73; font-style: italic; font-weight: 500; }
+  .eyebrow { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+  .nav-link { position: relative; }
+  .nav-link::after { position: absolute; bottom: -0.45rem; left: 0; width: 0; height: 1px; content: ""; background: currentColor; transition: width 200ms ease; }
+  .nav-link:hover::after { width: 100%; }
+  .pill-button { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 1rem; color: var(--color-cream); background: var(--color-ink); border-radius: 999px; }
+  .event-row { display: grid; grid-template-columns: 5rem 1fr auto auto; gap: 2rem; align-items: center; padding: 1.75rem 0; }
+  .form-field { width: 100%; padding: 1.1rem 0; color: var(--color-cream); background: transparent; border: 0; border-bottom: 1px solid rgb(255 255 255 / 30%); outline: none; }
+  .form-field:focus { border-color: var(--color-copper); }
+  .form-field::placeholder { color: rgb(253 251 247 / 50%); }
+  .image-muted { filter: saturate(0.72) contrast(0.96); }
+  .group:hover .image-muted { filter: saturate(0.86) contrast(1); }
+}
+
+@media (max-width: 700px) {
+  .event-row { grid-template-columns: 4rem 1fr auto; gap: 0.75rem; padding: 1.35rem 0; }
+  .event-row > :nth-child(3) { display: none; }
+}
