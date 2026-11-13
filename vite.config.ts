@@ -1,10 +1,9 @@
 
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 
+// Le site utilise une feuille CSS standard afin de limiter les alertes W3C.
 export default defineConfig({
   base: '/art-gallery-websit/',
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
 })
-
