@@ -1,41 +1,211 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,500&display=swap");
-@import "tailwindcss";
+/* Dédale de Couleurs — styles CSS conformes, mobile d’abord.
+   Conversion des utilitaires utilisés par la maquette Figma Make.
+   Aucun changement de contenu, typographie, couleur ou structure React.
+   Les noms de classes Tailwind existants restent utilisables dans App.tsx. */
 
-@theme {
-  --font-sans: "DM Sans", sans-serif;
-  --font-display: "Playfair Display", serif;
-  --color-cream: #fdfbf7;
-  --color-ink: #1a1a1a;
-  --color-copper: #817b73;
-  --color-stone: #e9e6e0;
-}
+/* Base */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; min-width: 320px; background: #fdfbf7; color: #1a1a1a; font-family: "DM Sans", sans-serif; }
+main, section, header, footer, nav, article { display: block; }
+h1, h2, h3, p { margin: 0; font-size: inherit; font-weight: inherit; }
+img { display: block; max-width: 100%; }
+button, input { font: inherit; }
+button { cursor: pointer; }
+a { color: inherit; text-decoration: none; }
+::selection { color: #fdfbf7; background: #817b73; }
 
-@layer base {
-  html { scroll-behavior: smooth; }
-  body { margin: 0; background: var(--color-cream); font-family: var(--font-sans); }
-  a { color: inherit; text-decoration: none; }
-  button { cursor: pointer; }
-  ::selection { color: var(--color-cream); background: var(--color-copper); }
-}
+/* Classes propres à la galerie */
+.font-display { font-family: "Playfair Display", serif; }
+.logo { font-family: "Playfair Display", serif; font-size: 1.1rem; font-weight: 600; letter-spacing: -0.04em; }
+.logo span { color: #817b73; font-style: italic; font-weight: 500; }
+.eyebrow { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
+.nav-link { position: relative; }
+.nav-link::after { position: absolute; bottom: -0.45rem; left: 0; width: 0; height: 1px; content: ""; background: currentColor; transition: width 200ms ease; }
+.nav-link:hover::after { width: 100%; }
+.pill-button { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 1rem; color: #fdfbf7; background: #1a1a1a; border-radius: 999px; }
+.event-row { display: grid; grid-template-columns: 5rem 1fr auto auto; gap: 2rem; align-items: center; padding: 1.75rem 0; }
+.form-field { width: 100%; padding: 1.1rem 0; color: #fdfbf7; background: transparent; border: 0; border-bottom: 1px solid rgba(255,255,255,0.3); outline: none; }
+.form-field:focus { border-color: #817b73; }
+.form-field::placeholder { color: rgba(253,251,247,0.5); }
+.image-muted { filter: saturate(0.72) contrast(0.96); }
+.group:hover .image-muted { filter: saturate(0.86) contrast(1); }
+[class~="divide-y"] > :not(:first-child) { border-top: 1px solid rgba(26,26,26,0.3); }
+/* Interactions de la maquette */
+.group:hover [class~="group-hover:rotate-45"] { transform: rotate(45deg); }
+.group:hover [class~="group-hover:scale-105"] { transform: scale(1.05); }
+.group:hover [class~="group-hover:scale-[1.025]"] { transform: scale(1.025); }
 
-@layer components {
-  .font-display { font-family: var(--font-display); }
-  .logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 600; letter-spacing: -0.04em; }
-  .logo span { color: #817b73; font-style: italic; font-weight: 500; }
-  .eyebrow { font-size: 0.64rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; }
-  .nav-link { position: relative; }
-  .nav-link::after { position: absolute; bottom: -0.45rem; left: 0; width: 0; height: 1px; content: ""; background: currentColor; transition: width 200ms ease; }
-  .nav-link:hover::after { width: 100%; }
-  .pill-button { display: flex; align-items: center; gap: 1rem; padding: 0.7rem 1rem; color: var(--color-cream); background: var(--color-ink); border-radius: 999px; }
-  .event-row { display: grid; grid-template-columns: 5rem 1fr auto auto; gap: 2rem; align-items: center; padding: 1.75rem 0; }
-  .form-field { width: 100%; padding: 1.1rem 0; color: var(--color-cream); background: transparent; border: 0; border-bottom: 1px solid rgb(255 255 255 / 30%); outline: none; }
-  .form-field:focus { border-color: var(--color-copper); }
-  .form-field::placeholder { color: rgb(253 251 247 / 50%); }
-  .image-muted { filter: saturate(0.72) contrast(0.96); }
-  .group:hover .image-muted { filter: saturate(0.86) contrast(1); }
-}
+/* Utilitaires de mise en page, typographie et couleurs */
+[class~="absolute"] { position:absolute; }
+[class~="relative"] { position:relative; }
+[class~="sticky"] { position:sticky; }
+[class~="top-0"] { top:0; }
+[class~="top-4"] { top:1rem; }
+[class~="bottom-0"] { bottom:0; }
+[class~="left-0"] { left:0; }
+[class~="left-4"] { left:1rem; }
+[class~="right-0"] { right:0; }
+[class~="inset-0"] { inset:0; }
+[class~="z-10"] { z-index:10; }
+[class~="z-50"] { z-index:50; }
+[class~="flex"] { display:flex; }
+[class~="inline-flex"] { display:inline-flex; }
+[class~="grid"] { display:grid; }
+[class~="block"] { display:block; }
+[class~="hidden"] { display:none; }
+[class~="flex-col"] { flex-direction:column; }
+[class~="items-center"] { align-items:center; }
+[class~="items-end"] { align-items:flex-end; }
+[class~="justify-between"] { justify-content:space-between; }
+[class~="justify-end"] { justify-content:flex-end; }
+[class~="place-items-center"] { place-items:center; }
+[class~="grid-cols-3"] { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+[class~="w-full"] { width:100%; }
+[class~="w-10"] { width:2.5rem; }
+[class~="h-10"] { height:2.5rem; }
+[class~="h-20"] { height:5rem; }
+[class~="h-full"] { height:100%; }
+[class~="min-h-screen"] { min-height:100vh; }
+[class~="min-h-64"] { min-height:16rem; }
+[class~="max-w-[1600px]"] { max-width:1600px; }
+[class~="max-w-7xl"] { max-width:80rem; }
+[class~="max-w-4xl"] { max-width:56rem; }
+[class~="max-w-lg"] { max-width:32rem; }
+[class~="max-w-md"] { max-width:28rem; }
+[class~="max-w-sm"] { max-width:24rem; }
+[class~="max-w-xs"] { max-width:20rem; }
+[class~="mx-auto"] { margin-left:auto;margin-right:auto; }
+[class~="ml-[10vw]"] { margin-left:10vw; }
+[class~="gap-3"] { gap:0.75rem; }
+[class~="gap-4"] { gap:1rem; }
+[class~="gap-5"] { gap:1.25rem; }
+[class~="gap-8"] { gap:2rem; }
+[class~="gap-9"] { gap:2.25rem; }
+[class~="gap-10"] { gap:2.5rem; }
+[class~="gap-12"] { gap:3rem; }
+[class~="gap-x-6"] { column-gap:1.5rem; }
+[class~="gap-y-16"] { row-gap:4rem; }
+[class~="aspect-[16/9]"] { aspect-ratio:16 / 9; }
+[class~="aspect-[4/5]"] { aspect-ratio:4 / 5; }
+[class~="object-cover"] { object-fit:cover; }
+[class~="overflow-hidden"] { overflow:hidden; }
+[class~="rounded-full"] { border-radius:9999px; }
+[class~="border"] { border:1px solid; }
+[class~="border-b"] { border-bottom:1px solid; }
+[class~="border-t"] { border-top:1px solid; }
+[class~="border-y"] { border-top:1px solid;border-bottom:1px solid; }
+[class~="border-ink"] { border-color:#1a1a1a; }
+[class~="border-ink/15"] { border-color:rgba(26,26,26,0.15); }
+[class~="border-ink/20"] { border-color:rgba(26,26,26,0.2); }
+[class~="border-ink/30"] { border-color:rgba(26,26,26,0.3); }
+[class~="border-white/20"] { border-color:rgba(255,255,255,0.2); }
+[class~="border-white/60"] { border-color:rgba(255,255,255,0.6); }
+[class~="bg-cream"] { background-color:#fdfbf7; }
+[class~="bg-cream/95"] { background-color:rgba(253,251,247,0.95); }
+[class~="bg-ink"] { background-color:#1a1a1a; }
+[class~="bg-stone"] { background-color:#e9e6e0; }
+[class~="bg-white/10"] { background-color:rgba(255,255,255,0.1); }
+[class~="bg-gradient-to-t"] { background-image:linear-gradient(to top, rgba(0,0,0,0.6), transparent); }
+[class~="text-ink"] { color:#1a1a1a; }
+[class~="text-cream"] { color:#fdfbf7; }
+[class~="text-copper"] { color:#817b73; }
+[class~="text-white"] { color:#fff; }
+[class~="text-ink/55"] { color:rgba(26,26,26,0.55); }
+[class~="text-ink/65"] { color:rgba(26,26,26,0.65); }
+[class~="text-white/45"] { color:rgba(255,255,255,0.45); }
+[class~="text-white/55"] { color:rgba(255,255,255,0.55); }
+[class~="text-xs"] { font-size:0.75rem; }
+[class~="text-sm"] { font-size:0.875rem; }
+[class~="text-base"] { font-size:1rem; }
+[class~="text-lg"] { font-size:1.125rem; }
+[class~="text-xl"] { font-size:1.25rem; }
+[class~="text-2xl"] { font-size:1.5rem; }
+[class~="text-3xl"] { font-size:1.875rem; }
+[class~="text-4xl"] { font-size:2.25rem; }
+[class~="text-5xl"] { font-size:3rem; }
+[class~="text-[0.6rem]"] { font-size:0.6rem; }
+[class~="text-[0.62rem]"] { font-size:0.62rem; }
+[class~="text-[0.64rem]"] { font-size:0.64rem; }
+[class~="text-[0.68rem]"] { font-size:0.68rem; }
+[class~="text-[clamp(3.4rem,7vw,7.8rem)]"] { font-size:clamp(3.4rem, 7vw, 7.8rem); }
+[class~="text-[clamp(4.5rem,11.7vw,12rem)]"] { font-size:clamp(4.5rem, 11.7vw, 12rem); }
+[class~="font-normal"] { font-weight:400; }
+[class~="font-semibold"] { font-weight:600; }
+[class~="font-bold"] { font-weight:700; }
+[class~="leading-[0.76]"] { line-height:0.76; }
+[class~="leading-[0.92]"] { line-height:0.92; }
+[class~="leading-relaxed"] { line-height:1.625; }
+[class~="leading-none"] { line-height:1; }
+[class~="tracking-wider"] { letter-spacing:0.05em; }
+[class~="tracking-[-0.045em]"] { letter-spacing:-0.045em; }
+[class~="tracking-[-0.05em]"] { letter-spacing:-0.05em; }
+[class~="tracking-[-0.06em]"] { letter-spacing:-0.06em; }
+[class~="tracking-[-0.075em]"] { letter-spacing:-0.075em; }
+[class~="tracking-[0.14em]"] { letter-spacing:0.14em; }
+[class~="tracking-[0.16em]"] { letter-spacing:0.16em; }
+[class~="tracking-[0.18em]"] { letter-spacing:0.18em; }
+[class~="tracking-[0.2em]"] { letter-spacing:0.2em; }
+[class~="uppercase"] { text-transform:uppercase; }
+[class~="transition"] { transition-property:color, background-color, border-color, opacity, transform, filter;transition-timing-function:ease;transition-duration:150ms; }
+[class~="duration-700"] { transition-duration:700ms; }
+[class~="duration-1000"] { transition-duration:1000ms; }
+[class~="mt-1"] { margin-top:0.25rem; }
+[class~="mt-12"] { margin-top:3rem; }
+[class~="mt-2"] { margin-top:0.5rem; }
+[class~="mt-3"] { margin-top:0.75rem; }
+[class~="mt-4"] { margin-top:1rem; }
+[class~="mt-5"] { margin-top:1.25rem; }
+[class~="mt-6"] { margin-top:1.5rem; }
+[class~="mt-7"] { margin-top:1.75rem; }
+[class~="mt-8"] { margin-top:2rem; }
+[class~="mb-14"] { margin-bottom:3.5rem; }
+[class~="mb-7"] { margin-bottom:1.75rem; }
+[class~="pb-14"] { padding-bottom:3.5rem; }
+[class~="pb-2"] { padding-bottom:0.5rem; }
+[class~="pb-3"] { padding-bottom:0.75rem; }
+[class~="pb-6"] { padding-bottom:1.5rem; }
+[class~="pt-5"] { padding-top:1.25rem; }
+[class~="pt-8"] { padding-top:2rem; }
+[class~="p-5"] { padding:1.25rem; }
+[class~="p-8"] { padding:2rem; }
+[class~="px-4"] { padding-inline:1rem; }
+[class~="px-5"] { padding-inline:1.25rem; }
+[class~="py-14"] { padding-block:3.5rem; }
+[class~="py-2"] { padding-block:0.5rem; }
+[class~="py-20"] { padding-block:5rem; }
+[class~="py-4"] { padding-block:1rem; }
+[class~="py-7"] { padding-block:1.75rem; }
 
+/* Adaptation mobile des lignes de l’agenda */
 @media (max-width: 700px) {
-  .event-row { grid-template-columns: 4rem 1fr auto; gap: 0.75rem; padding: 1.35rem 0; }
+  .event-row { grid-template-columns: 4rem minmax(0, 1fr) auto; gap: 0.75rem; padding: 1.35rem 0; }
   .event-row > :nth-child(3) { display: none; }
+}
+
+/* Tablettes et petits ordinateurs : 640px / 768px */
+@media (min-width: 640px) {
+  [class~="sm:block"] { display:block; }
+  [class~="sm:inline"] { display:inline; }
+}
+@media (min-width: 768px) {
+  [class~="md:block"] { display:block; }
+  [class~="md:flex"] { display:flex; }
+  [class~="md:hidden"] { display:none; }
+  [class~="md:grid-cols-3"] { grid-template-columns:repeat(3, minmax(0, 1fr)); }
+  [class~="md:grid-cols-[1fr_auto_auto]"] { grid-template-columns:1fr auto auto; }
+  [class~="md:mt-20"] { margin-top:5rem; }
+  [class~="md:text-4xl"] { font-size:2.25rem; }
+  [class~="md:text-7xl"] { font-size:4.5rem; }
+}
+@media (min-width: 1024px) {
+  [class~="lg:-mt-12"] { margin-top:-3rem; }
+  [class~="lg:grid-cols-2"] { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  [class~="lg:grid-cols-[0.55fr_1.45fr]"] { grid-template-columns:0.55fr 1.45fr; }
+  [class~="lg:grid-cols-[1.1fr_0.9fr]"] { grid-template-columns:1.1fr 0.9fr; }
+  [class~="lg:items-end"] { align-items:flex-end; }
+  [class~="lg:p-7"] { padding:1.75rem; }
+  [class~="lg:pb-24"] { padding-bottom:6rem; }
+  [class~="lg:px-10"] { padding-inline:2.5rem; }
+  [class~="lg:py-28"] { padding-block:7rem; }
 }
