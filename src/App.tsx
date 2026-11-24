@@ -94,7 +94,8 @@ export default function App() {
               <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between p-5 text-white lg:p-7">
                 <div>
                   <p className="text-[0.62rem] font-semibold uppercase tracking-[0.2em]">Exposition temporaire · 16.05 — 29.08</p>
-                  <p className="font-display mt-2 text-3xl">Passage — David Gari</p>
+                 <h2 className="font-display mt-2 text-3xl">Passage — David Gari</h2>
+
                 </div>
                 <span className="hidden rounded-full border border-white/60 px-4 py-2 text-xs sm:block">Entrée libre</span>
               </div>
