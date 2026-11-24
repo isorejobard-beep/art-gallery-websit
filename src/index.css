@@ -209,3 +209,20 @@ a { color: inherit; text-decoration: none; }
   [class~="lg:px-10"] { padding-inline:2.5rem; }
   [class~="lg:py-28"] { padding-block:7rem; }
 }
+
+/* Corrections des contrastes — WCAG 2.1 AA */
+
+/* Textes gris sur fond noir */
+.bg-ink .text-copper {
+  color: #8D877F;
+}
+
+/* Légendes des photographies */
+[class~="text-white/45"] {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* Texte du pied de page */
+[class~="text-ink/55"] {
+  color: rgba(26, 26, 26, 0.65);
+}
